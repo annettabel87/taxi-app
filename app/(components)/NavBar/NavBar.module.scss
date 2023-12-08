@@ -1,0 +1,19 @@
+.navBar {
+    @apply  sm:px-6 lg:px-5 px-7 py-2
+}
+
+.container {
+    @apply max-w-6xl m-auto flex justify-between items-center
+}
+
+.navList {
+    @apply flex justify-between items-center gap-6
+}
+
+.navItem {
+    @apply cursor-pointer hover:text-lightText transition-all duration-300
+}
+
+.logo {
+    @apply hover:opacity-70 transition-all duration-300
+}

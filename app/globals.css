@@ -6,4 +6,8 @@
   
 }
 
+body {
+    @apply bg-dark text-sm text-greyText
+}
+
 

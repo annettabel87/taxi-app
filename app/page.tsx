@@ -1,9 +1,13 @@
-import { UserButton } from "@clerk/nextjs";
+import Booking from "./(components)/Booking/Booking";
+import styles from "./Home.module.scss";
 
 export default function Home() {
   return (
-   <div>
-    <h2>hello</h2>    
-   </div>
-  )
+    <div className={styles.home}>
+      <div className={styles.container}>
+          <Booking />
+        <div className="col-span-2">map</div>
+      </div>
+    </div>
+  );
 }

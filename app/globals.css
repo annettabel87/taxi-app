@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 :root {
-  
+  --green: #36B563;
 }
 
 body {
-    @apply bg-dark text-sm text-greyText
+  @apply bg-dark text-sm text-greyText flex flex-col min-h-screen
 }
 
-
+.main {
+  @apply flex-grow
+}

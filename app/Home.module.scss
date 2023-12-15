@@ -1,0 +1,7 @@
+.home {
+    @apply sm:px-6 lg:px-5 px-7 py-2
+}
+
+.container {
+    @apply max-w-6xl m-auto grid grid-cols-1 md:grid-cols-3
+}

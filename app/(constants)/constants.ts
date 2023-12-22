@@ -3,3 +3,6 @@ export const ROUTES = {
     help: '/help',
     history: '/history'
 }
+
+
+export const BASE_URL = "https://api.mapbox.com/search/searchbox/v1/suggest"

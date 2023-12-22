@@ -18,3 +18,15 @@
 .img {
     @apply bg-none
 }
+
+.error {
+    @apply text-red-600
+}
+
+.addressList {
+    @apply shadow-md  rounded-xl  w-full border-lightText border border-t-0
+}
+
+.address {
+    @apply p-2 hover:text-green  cursor-pointer transition-all
+}

@@ -5,7 +5,7 @@ import styles from "./Classes.module.scss";
 import { CarsList } from "@/app/(data)/CarsList";
 
 function Classes() {
-  const [selectedClass, setSelectedClass] = useState<number>();
+  const [selectedClass, setSelectedClass] = useState<number>(1);
 
   return (
     <div className={styles.classes}>

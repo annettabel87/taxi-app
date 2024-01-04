@@ -17,7 +17,8 @@ function Booking() {
         <PathInput />
       </div>
       <Classes />
-      <Pay/>
+      <Pay />
+      <button className={styles.button}>Confirm order</button>
     </div>
   );
 }

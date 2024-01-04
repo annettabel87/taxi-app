@@ -2,6 +2,7 @@ import React from "react";
 import PathInput from "../PathInput/PathInput";
 import styles from "./Booking.module.scss";
 import Classes from "../Classes/Classes";
+import Pay from "../Pay/Pay";
 
 function Booking() {
   return (
@@ -16,6 +17,7 @@ function Booking() {
         <PathInput />
       </div>
       <Classes />
+      <Pay/>
     </div>
   );
 }

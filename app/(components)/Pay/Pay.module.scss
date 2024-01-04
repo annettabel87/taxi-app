@@ -1,0 +1,19 @@
+.pay {
+    @apply flex flex-col justify-center w-full
+}
+
+.title {
+    @apply text-xl text-lightText text-center font-semibold my-3
+}
+
+.payList {
+    @apply flex items-center justify-center gap-3
+}
+
+.payItem {
+    @apply border rounded-md px-3 border-gray-600 transition-all hover:scale-110
+}
+
+.active {
+    @apply border-green
+}

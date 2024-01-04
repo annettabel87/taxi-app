@@ -1,0 +1,27 @@
+.classes {
+    @apply flex flex-col justify-center w-full
+}
+
+.classesList {
+    @apply flex flex-col gap-3 items-center
+}
+
+.classesTitle {
+    @apply text-xl text-lightText text-center font-semibold my-3
+}
+
+.classesItem {
+    @apply flex justify-between items-center rounded-full py-3 px-5 w-[210px] border border-dark hover:border-solid hover:border-gray-600 transition-all
+}
+
+.active {
+    @apply bg-lightGray text-white border border-solid border-lightGray hover:border-lightGray
+}
+
+.classesText {
+    @apply text-lightText
+}
+
+.classesBoldText {
+    @apply text-lg text-lightText
+}

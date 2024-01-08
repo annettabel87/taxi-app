@@ -1,8 +1,9 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
 import { NavBar } from "./(components)/NavBar/NavBar";
+import LocationState from "./(context)/LocationState";
+import "./globals.css";
 
 const inter = Roboto({ subsets: ["latin"], weight: "400" });
 
@@ -17,14 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <NavBar />
-          <main className="main">{children}</main>
-          <footer>footer</footer>
-        </body>
-      </html>
-    </ClerkProvider>
+    <LocationState>
+      <ClerkProvider>
+        <html lang="en">
+          <body className={inter.className}>
+            <NavBar />
+            <main className="main">{children}</main>
+            <footer>footer</footer>
+          </body>
+        </html>
+      </ClerkProvider>
+    </LocationState>
   );
 }

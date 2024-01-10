@@ -73,3 +73,14 @@ export interface IUserLocationContext {
   userLocation: ILocation | null;
   setUserLocation: (location: ILocation) => void;
 }
+
+export interface ISourceCoordinateContext {
+  sourceCoordinate: ILocation | null;
+  setSourceCoordinate: (source: ILocation) => void;
+}
+
+export interface IDestinationCoordinateContext {
+  destinationCoordinate: ILocation | null;
+  setDestinationCoordinate: (destination: ILocation) => void;
+}
+

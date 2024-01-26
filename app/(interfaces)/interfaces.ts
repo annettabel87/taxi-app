@@ -84,3 +84,47 @@ export interface IDestinationCoordinateContext {
   setDestinationCoordinate: (destination: ILocation) => void;
 }
 
+export interface IDirectionDataContext {
+  directionData: IDirectionData | null;
+  setDirectionData: (data: IDirectionData) => void;
+}
+export interface IDirectionData {
+  routes: Route[];
+  waypoints: Waypoint[];
+  code: string;
+  uuid: string;
+}
+export interface Route {
+  weight_name: string;
+  weight: number;
+  duration: number;
+  distance: number;
+  legs: Leg[];
+  geometry: Geometry;
+}
+
+export interface Leg {
+  via_waypoints: any[];
+  admins: Admin[];
+  weight: number;
+  duration: number;
+  steps: any[];
+  distance: number;
+  summary: string;
+}
+
+export interface Waypoint {
+  distance: number;
+  name: string;
+  location: number[];
+}
+
+export interface Geometry {
+  coordinates: Array<number[]>;
+  type: string;
+}
+
+export interface Admin {
+  iso_3166_1_alpha3: string;
+  iso_3166_1: string;
+}

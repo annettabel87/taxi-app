@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Map, { MapRef } from "react-map-gl";
 import { UserLocationContext } from "@/app/(context)/UserLocationContext";
 import {
   IDestinationCoordinateContext,
+  IDirectionData,
+  IDirectionDataContext,
   ISourceCoordinateContext,
   IUserLocationContext,
 } from "@/app/(interfaces)/interfaces";
@@ -13,8 +15,12 @@ import styles from "./MapBoxMap.module.scss";
 import Markers from "../Markers/Markers";
 import { DestinationCoordinateContext } from "@/app/(context)/DestinationCoordinateContext";
 import { SourceCoordinateContext } from "@/app/(context)/SourceCoordinateContext copy";
+import { MAPBOX_DRIVING_ENDPOINT } from "@/app/(constants)/constants";
+import { DirectionDataContext } from "@/app/(context)/DirectionDataContext";
+import MapBoxRoute from "../MapBoxRoute/MapBoxRoute";
 
 function MapBoxMap() {
+  const [error, setError] = useState<string>("");
   const { userLocation, setUserLocation } = useContext(
     UserLocationContext
   ) as IUserLocationContext;
@@ -26,6 +32,10 @@ function MapBoxMap() {
   const { destinationCoordinate, setDestinationCoordinate } = useContext(
     DestinationCoordinateContext
   ) as IDestinationCoordinateContext;
+
+  const { directionData, setDirectionData } = useContext(
+    DirectionDataContext
+  ) as IDirectionDataContext;
 
   const mapRef = useRef<MapRef>(null);
 
@@ -48,7 +58,36 @@ function MapBoxMap() {
         duration: 2500,
       });
     }
+
+    if (sourceCoordinate && destinationCoordinate) {
+      const data = getDirectionRoute();
+    }
   }, [destinationCoordinate]);
+
+  const getDirectionRoute = async () => {
+    try {
+      const response = await fetch(
+        `${MAPBOX_DRIVING_ENDPOINT}${sourceCoordinate?.longitude},${sourceCoordinate?.latitude};${destinationCoordinate?.longitude},${destinationCoordinate?.latitude}?overview=full&geometries=geojson&access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCES_TOKEN}`,
+
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const result = (await response.json()) as IDirectionData;
+      if (result.code !== "Ok") {
+        throw new Error("не удалось построить маршрут");
+      }
+      console.log(result);
+      setDirectionData(result);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
+    }
+  };
 
   if (!userLocation) return <div>Loading...</div>;
 
@@ -66,7 +105,13 @@ function MapBoxMap() {
         mapStyle="mapbox://styles/mapbox/navigation-preview-night-v4"
       >
         <Markers />
+        {directionData?.routes ? (
+          <MapBoxRoute
+            coordinates={directionData?.routes[0]?.geometry?.coordinates}
+          />
+        ) : null}
       </Map>
+      {error && <p>{error}</p>}
     </div>
   );
 }

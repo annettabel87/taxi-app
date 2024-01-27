@@ -1,0 +1,15 @@
+.driveInfo {
+    @apply p-5 bg-gray-800 rounded-lg
+}
+
+.header {
+    @apply flex justify-between
+}
+
+.textBold {
+    @apply font-bold text-lg
+}
+
+.text {
+    @apply text-lg
+}

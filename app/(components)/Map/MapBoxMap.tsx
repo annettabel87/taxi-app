@@ -18,6 +18,7 @@ import { SourceCoordinateContext } from "@/app/(context)/SourceCoordinateContext
 import { MAPBOX_DRIVING_ENDPOINT } from "@/app/(constants)/constants";
 import { DirectionDataContext } from "@/app/(context)/DirectionDataContext";
 import MapBoxRoute from "../MapBoxRoute/MapBoxRoute";
+import DriveInfo from "../DriveInfo/DriveInfo";
 
 function MapBoxMap() {
   const [error, setError] = useState<string>("");
@@ -111,6 +112,9 @@ function MapBoxMap() {
           />
         ) : null}
       </Map>
+      <div className={styles.info}>
+        <DriveInfo />
+      </div>
       {error && <p>{error}</p>}
     </div>
   );

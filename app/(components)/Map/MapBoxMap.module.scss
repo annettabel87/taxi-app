@@ -1,3 +1,7 @@
 .map {
     @apply rounded-r-lg overflow-hidden h-full
 }
+
+.info {
+    @apply absolute bottom-12 right-10 z-20 w-1/3
+}

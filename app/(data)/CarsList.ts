@@ -3,25 +3,25 @@ export const CarsList: ICar[] = [
     id: 1,
     name: "Standard",
     image: "/cars/1.jpg",
-    price: 15,
+    price: 1.5,
   },
   {
     id: 2,
     name: "Business",
     image: "/cars/2.jpg",
-    price: 22,
+    price: 2.2,
   },
   {
     id: 3,
     name: "Premium",
     image: "/cars/3.jpg",
-    price: 30,
+    price: 3,
   },
   {
     id: 4,
     name: "Child",
     image: "/cars/4.png",
-    price: 20,
+    price: 2,
   },
 ];
 
